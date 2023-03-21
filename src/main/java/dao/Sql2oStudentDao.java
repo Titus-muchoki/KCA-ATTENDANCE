@@ -49,7 +49,7 @@ public class Sql2oStudentDao implements StudentDao{
 
     @Override
     public void update(int id, String name, String reg, String email, String tel, String unit, String lecture, String dateTaught, String studentRemark, int courseId) {
-        String sql = "UPDATE students SET (name, reg, email, tel, unit, lecture, dateTaught, studentRemark, officerId) = (:name, :reg, :email, :tel, :unit, :lecture, :dateTaught, :studentRemark, :officerId) WHERE id=:id";
+        String sql = "UPDATE students SET (name, reg, email, tel, unit, lecture, dateTaught, studentRemark, courseId) = (:name, :reg, :email, :tel, :unit, :lecture, :dateTaught, :studentRemark, :courseId) WHERE id=:id";
         try (Connection con = sql2o.open()){
             con.createQuery(sql)
                     .addParameter("name", name)
@@ -60,6 +60,7 @@ public class Sql2oStudentDao implements StudentDao{
                     .addParameter("lecture", lecture)
                     .addParameter("dateTaught", dateTaught)
                     .addParameter("studentRemark", studentRemark)
+                    .addParameter("courseId", courseId)
                     .addParameter("id", id);
         }catch (Sql2oException ex){
             System.out.println(ex);
