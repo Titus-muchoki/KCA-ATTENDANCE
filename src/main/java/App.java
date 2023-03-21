@@ -10,8 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static spark.Spark.get;
-import static spark.Spark.staticFileLocation;
+import static spark.Spark.*;
 
 public class App {
     public static void main(String[] args) { //type “psvm + tab” to autocreate this
@@ -34,5 +33,22 @@ public class App {
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 
+        get("/courses/new", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            List<Course> courses = courseDao.getAll(); //refresh list of links for navbar
+            model.put("courses", courses);
+            return new ModelAndView(model, "course-form.hbs"); //new layout
+        }, new HandlebarsTemplateEngine());
+
+        //post: process a form to create a new category
+
+        post("/courses", (req, res) -> { //new
+            Map<String, Object> model = new HashMap<>();
+            String name = req.queryParams("name");
+            Course newCause = new Course(name);
+            courseDao.add(newCause);
+            res.redirect("/");
+            return null;
+        }, new HandlebarsTemplateEngine());
     }
 }
