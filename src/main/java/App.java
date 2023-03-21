@@ -155,7 +155,7 @@ public class App {
             model.put("courses", allCourses);
             Student student = studentDao.findById(Integer.parseInt(req.params("id")));
             model.put("student", student);
-            model.put(" editStudent", true);
+            model.put(" editStudents", true);
             return new ModelAndView(model, "student-form.hbs"); //individual task page.
         }, new HandlebarsTemplateEngine());
 
