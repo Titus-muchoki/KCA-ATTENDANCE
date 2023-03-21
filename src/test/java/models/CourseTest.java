@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class FacultyTest {
+public class CourseTest {
     @Before
     public void setup()throws Exception{
 
@@ -17,11 +17,11 @@ public class FacultyTest {
     }
     @Test
     public void getNameReturnsCorrectly() throws Exception{
-        Faculty faculty = setupFaculty();
-        assertEquals("sot", faculty.getName());
+        Course course = setupCourse();
+        assertEquals("sot", course.getName());
     }
     //HELPERS
-    public Faculty setupFaculty()throws Exception{
-        return new Faculty("sot");
+    public Course setupCourse()throws Exception{
+        return new Course("sot");
     }
 }
