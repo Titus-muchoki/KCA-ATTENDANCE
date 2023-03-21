@@ -156,7 +156,26 @@ public class App {
             Student student = studentDao.findById(Integer.parseInt(req.params("id")));
             model.put("student", student);
             model.put(" editStudent", true);
-            return new ModelAndView(model, "student-form.hbs");
+            return new ModelAndView(model, "student-form.hbs"); //individual task page.
         }, new HandlebarsTemplateEngine());
+
+        //task: process a form to update a test
+        post("/students/:id", (req, res) -> { //URL to update task on POST route
+            Map<String, Object> model = new HashMap<>();
+            int studentToEditId = Integer.parseInt(req.params("id"));
+            String name = req.queryParams("name");
+            String reg = req.queryParams("reg");
+            String email = req.queryParams("email");
+            String tel = req.queryParams("tel");
+            String unit = req.queryParams("unit");
+            String lecture = req.queryParams("lecture");
+            String dateTaught = req.queryParams("dateTaught");
+            String studentRemark = req.queryParams("studentRemark");
+            int courseId = Integer.parseInt(req.queryParams("courseId"));
+            studentDao.update(studentToEditId,name,reg,email,tel,unit,lecture,dateTaught,studentRemark,courseId);  // remember the hardcoded categoryId we placed? See what we've done to/with it?
+            res.redirect("/");
+            return null;
+        }, new HandlebarsTemplateEngine());
+
     }
 }
