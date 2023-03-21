@@ -1,0 +1,20 @@
+{{#partial "content"}}
+    <p>name:{{ student.name }} </p>
+    <p>Registration:{{ student.reg }} </p>
+    <p>Email:{{ student.email }} </p>
+    <p>Tel:{{ student.tel }} </p>
+    <p>Tel:{{ patient.tel }} </p>
+    <p>Unit:{{ student.email }} </p>
+    <p>Lecture:{{ student.lecture }} </p>
+    <p>Date:{{ student.dateTaught }} </p>
+    <p>Remark:{{ student.studentRemark }} </p>
+    <p>Course of this student: {{ course.name }}</p>
+
+    <p>
+        <a href="/students/{{student.id}}/edit">Edit this student attendance</a><br>
+        <a href="/courses/{{student.courseId}}/students/{{student.id}}/delete">DELETE this student attendance</a>
+    </p>
+
+{{/partial}}
+
+{{> layout.hbs}}

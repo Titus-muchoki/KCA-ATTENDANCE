@@ -1,0 +1,15 @@
+{{#partial "content"}}
+    <h1>{{course.name}}</h1>
+    <p>Here are all the students with their courses:</p>
+    <ul>
+        {{#each students}}
+            <li>
+                <p><a href="/courses/{{course.id}}/students/{{id}}">{{description}} </a></p>
+            </li>
+        {{/each}}
+    </ul>
+    <a href="/courses/{{course.id}}/edit">Edit this course</a><br>
+    <a href="/courses/{{course.id}}/delete">DELETE this course</a>
+{{/partial}}
+
+{{> layout.hbs}}

@@ -9,7 +9,7 @@
 <ul class="nav nav-tabs">
     <li role="presentation" class="active"><a href="/">Home</a></li>
     <li role="presentation"><a href="/patients/new">Add a New patient</a></li>
-    <li role="presentation"><a href="/officers/new">Add a New officer</a></li>
+    <li role="presentation"><a href="/courses/new">Add a New course</a></li>
 
     <li role="presentation" class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
@@ -36,16 +36,16 @@
     </li>
     <li role="presentation" class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-            Officer Menu <span class="caret"></span>
+            Course Menu <span class="caret"></span>
         </a>
         <ul class="dropdown-menu">
-            {{#if officers}}
-                {{#each officers}}
-                    <li><a href="/officers/{{id}}">{{name}}</a></li>
+            {{#if courses}}
+                {{#each courses}}
+                    <li><a href="/courses/{{id}}">{{name}}</a></li>
                 {{/each}}
-                <li><a href="/officers/new">Add a new Officer</a></li>
+                <li><a href="/courses/new">Add a new Course</a></li>
             {{else}}
-                <li><a href="/officers/new">Add a new Officer</a></li>
+                <li><a href="/courses/new">Add a new Course</a></li>
             {{/if}}
         </ul>
     </li>
