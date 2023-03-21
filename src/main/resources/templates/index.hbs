@@ -1,0 +1,14 @@
+{{#partial "content"}}
+
+    <h1> List of student attendances to analyze!</h1>
+
+    {{#if students }}
+        {{#each students }}
+            <p><a href="/courses/{{courseId}}/students/{{id}}">{{name}}</a></p>
+        {{/each}}
+    {{else}}
+        <p>No attendance to analyze!</p>
+    {{/if}}
+{{/partial}}
+
+{{> layout.hbs}}
