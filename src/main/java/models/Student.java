@@ -11,8 +11,11 @@ public class Student {
     private String lecture;
     private String dateTaught;
     private String studentRemark;
+    private int courseId;
+    private int id;
 
-    public Student(String name, String reg, String email, String tel, String unit, String lecture, String dateTaught, String studentRemark) {
+
+    public Student(String name, String reg, String email, String tel, String unit, String lecture, String dateTaught, String studentRemark, int courseId) {
         this.name = name;
         this.reg = reg;
         this.email = email;
@@ -21,6 +24,7 @@ public class Student {
         this.lecture = lecture;
         this.dateTaught = dateTaught;
         this.studentRemark = studentRemark;
+        this.courseId = courseId;
     }
 
     @Override
@@ -28,12 +32,12 @@ public class Student {
         if (this == o) return true;
         if (!(o instanceof Student)) return false;
         Student student = (Student) o;
-        return Objects.equals(name, student.name) && Objects.equals(reg, student.reg) && Objects.equals(email, student.email) && Objects.equals(tel, student.tel) && Objects.equals(unit, student.unit) && Objects.equals(lecture, student.lecture) && Objects.equals(dateTaught, student.dateTaught) && Objects.equals(studentRemark, student.studentRemark);
+        return courseId == student.courseId && id == student.id && Objects.equals(name, student.name) && Objects.equals(reg, student.reg) && Objects.equals(email, student.email) && Objects.equals(tel, student.tel) && Objects.equals(unit, student.unit) && Objects.equals(lecture, student.lecture) && Objects.equals(dateTaught, student.dateTaught) && Objects.equals(studentRemark, student.studentRemark);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, reg, email, tel, unit, lecture, dateTaught, studentRemark);
+        return Objects.hash(name, reg, email, tel, unit, lecture, dateTaught, studentRemark, courseId, id);
     }
 
     public String getName() {
@@ -97,5 +101,21 @@ public class Student {
 
     public void setStudentRemark(String studentRemark) {
         this.studentRemark = studentRemark;
+    }
+
+    public int getCourseId() {
+        return courseId;
+    }
+
+    public void setCourseId(int courseId) {
+        this.courseId = courseId;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

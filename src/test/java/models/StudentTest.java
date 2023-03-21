@@ -55,8 +55,13 @@ public class StudentTest {
         Student student = setupStudent();
         assertEquals("good", student.getStudentRemark());
     }
+    @Test
+    public void getCourseIdReturnsCorrectly()throws Exception{
+        Student student = setupStudent();
+        assertEquals(1, student.getCourseId());
+    }
     //HELPERS
     public Student setupStudent()throws Exception{
-        return new Student("tito","18","@t","07","hv","gl","21","good");
+        return new Student("tito","18","@t","07","hv","gl","21","good",1);
     }
 }
