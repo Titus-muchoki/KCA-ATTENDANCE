@@ -8,24 +8,26 @@
 <body>
 <ul class="nav nav-tabs">
     <li role="presentation" class="active"><a href="/">Home</a></li>
-    <li role="presentation"><a href="/patients/new">Add a New patient</a></li>
+    <li role="presentation"><a href="/students/new">Add a New student</a></li>
     <li role="presentation"><a href="/courses/new">Add a New course</a></li>
 
     <li role="presentation" class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-            patients  Menu <span class="caret"></span>
+            Student  Menu <span class="caret"></span>
         </a>
         <ul class="dropdown-menu">
-            {{#if patients }}
-                {{#each patients }}
-                    <li><a href="/patients/{{id}}">
+            {{#if students }}
+                {{#each students }}
+                    <li><a href="/students/{{id}}">
                         {{name}}<br>
-                        {{nationalId}}<br>
-                        {{dateTreated}}<br>
-                        {{infection}}<br>
+                        {{reg}}<br>
+                        {{email}}<br>
                         {{tel}}<br>
-                        {{amount}}<br>
-                        {{officerId}}
+                        {{unit}}<br>
+                        {{lecture}}<br>
+                        {{dateTaught}}<br>
+                        {{studentRemark}}<br>
+                        {{courseId}}
                     </a></li>
                 {{/each}}
                 <!--                <li><a href="/airports/new">Add an airport</a></li>-->
@@ -54,7 +56,7 @@
 <div class="container">
     <!--begin main template-->
     <div class="page-header">
-        <h2>WELCOME TO CHEBOIN DISPENSARY</h2>
+        <h2>WELCOME TO KCA Students online attendance</h2>
         <img src="/images/2011-KCA-University-Scholarships.png" width="100%" alt="">
         <h1>Welcome to cheboin. <small>analyze patient data.</small></h1>
     </div>
