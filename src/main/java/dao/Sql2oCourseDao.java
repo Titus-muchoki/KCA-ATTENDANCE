@@ -8,22 +8,22 @@ import org.sql2o.Sql2oException;
 
 import java.util.List;
 
-public class Sql2OCourseDao implements CourseDao {
+public class Sql2oCourseDao implements CourseDao {
     private final Sql2o sql2o;
 
-    public Sql2OCourseDao(Sql2o sql2o) {
+    public Sql2oCourseDao(Sql2o sql2o) {
         this.sql2o = sql2o;
     }
 
     @Override
-    public void add(Student student) {
+    public void add(Course course) {
         String sql = "INSERT INTO courses (name) VALUES (:name)"; //raw sql
         try (Connection con = sql2o.open()) {
             int id = (int) con.createQuery(sql, true)
-                    .bind(student)
+                    .bind(course)
                     .executeUpdate()
                     .getKey();
-            student.setId(id);
+            course.setId(id);
         } catch (Sql2oException ex) {
             System.out.println(ex);
         }
@@ -40,7 +40,7 @@ public class Sql2OCourseDao implements CourseDao {
     @Override
     public List<Student> getAllStudentsByCourse(int courseId) {
         try(Connection con = sql2o.open()) {
-            return con.createQuery("SELECT * FROM courses WHERE courseId = :courseId")
+            return con.createQuery("SELECT * FROM students WHERE courseId = :courseId")
                     .addParameter("courseId", courseId)
                     .executeAndFetch(Student.class);
 

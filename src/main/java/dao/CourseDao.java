@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface CourseDao {
     //CREATE
-    void add(Student student);
+    void add(Course course);
 
     //READ
     List<Course> getAll();
