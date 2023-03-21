@@ -134,5 +134,29 @@ public class App {
             res.redirect("/");
             return null;
         }, new HandlebarsTemplateEngine());
+
+        get("/courses/:course_id/students/:student_id", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            int idOfStudentToFind = Integer.parseInt(req.params("student_id")); //pull id - must match route segment
+            Student foundStudent = studentDao.findById(idOfStudentToFind); //use it to find task
+            int idOfCourseToFind = Integer.parseInt(req.params("course_id"));
+            Course foundCourse = courseDao.findById(idOfCourseToFind);
+            model.put("course", foundCourse);
+            model.put("student", foundStudent); //add it to model for template to display
+            model.put("courses", courseDao.getAll()); //refresh list of links for navbar
+            return new ModelAndView(model, "student-detail.hbs"); //individual task page.
+        }, new HandlebarsTemplateEngine());
+
+        //get: show a form to update a viral test
+
+        get("/students/:id/edit", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            List<Course> allCourses = courseDao.getAll();
+            model.put("courses", allCourses);
+            Student student = studentDao.findById(Integer.parseInt(req.params("id")));
+            model.put("student", student);
+            model.put(" editStudent", true);
+            return new ModelAndView(model, "student-form.hbs");
+        }, new HandlebarsTemplateEngine());
     }
 }
