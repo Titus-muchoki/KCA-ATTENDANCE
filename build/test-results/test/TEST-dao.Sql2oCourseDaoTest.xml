@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="dao.Sql2oCourseDaoTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2023-03-21T18:29:54" hostname="kajela-HP-EliteBook-840-G3" time="0.878">
+  <properties/>
+  <testcase name="deleteByIdDeletesCorrectCourse" classname="dao.Sql2oCourseDaoTest" time="0.341"/>
+  <testcase name="addedCoursesAreReturnedFromGetAll" classname="dao.Sql2oCourseDaoTest" time="0.066"/>
+  <testcase name="clearAllClearsAllCourses" classname="dao.Sql2oCourseDaoTest" time="0.105"/>
+  <testcase name="existingCourseCanBeFoundById" classname="dao.Sql2oCourseDaoTest" time="0.056"/>
+  <testcase name="updateChangesCourseContent" classname="dao.Sql2oCourseDaoTest" time="0.08"/>
+  <testcase name="getAllStudentsByCoursesReturnsAllStudentCorrect" classname="dao.Sql2oCourseDaoTest" time="0.134"/>
+  <testcase name="noCoursesReturnsEmptyList" classname="dao.Sql2oCourseDaoTest" time="0.038"/>
+  <testcase name="addingCourseSetsId" classname="dao.Sql2oCourseDaoTest" time="0.04"/>
+  <system-out><![CDATA[clearing all database
+clearing all database
+clearing all database
+clearing all database
+clearing all database
+clearing all database
+clearing all database
+clearing all database
+close connection
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
